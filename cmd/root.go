@@ -33,6 +33,7 @@ Examples:
   # Use different converter backends
   svg2sheet --input icon.svg --output icon.png --converter rod
   svg2sheet --input icon.svg --output icon.png --converter rsvg --scale 2.0
+  svg2sheet --input icon.svg --output icon.png --converter inkscape --scale 2.0
 
   # List available converters
   svg2sheet converters`,
@@ -71,7 +72,7 @@ func init() {
 	rootCmd.Flags().BoolVar(&cfg.Trim, "trim", false, "Trim transparent edges from images")
 	rootCmd.Flags().BoolVar(&cfg.Force, "force", false, "Overwrite existing output files")
 	rootCmd.Flags().BoolVarP(&cfg.Verbose, "verbose", "v", false, "Enable verbose logging")
-	rootCmd.Flags().StringVar(&cfg.Converter, "converter", "", "SVG converter backend: oksvg, rod, or rsvg (default: oksvg)")
+	rootCmd.Flags().StringVar(&cfg.Converter, "converter", "", "SVG converter backend: oksvg, rod, rsvg, or inkscape (default: oksvg)")
 }
 
 func runSvg2Sheet() error {

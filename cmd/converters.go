@@ -52,6 +52,7 @@ func runConvertersList() error {
 		config.ConverterOkSVG,
 		config.ConverterRod,
 		config.ConverterRSVG,
+		config.ConverterInkscape,
 	}
 
 	fmt.Println("SVG Converter Backends")
@@ -132,6 +133,7 @@ func runConvertersList() error {
 		fmt.Println("- oksvg: Built-in (should always be available)")
 		fmt.Println("- rod: Requires Chrome/Chromium browser")
 		fmt.Println("- rsvg: Requires rsvg-convert command (install librsvg2-bin)")
+		fmt.Println("- inkscape: Requires Inkscape (install from https://inkscape.org/)")
 	}
 
 	return nil

@@ -45,9 +45,10 @@ const (
 type ConverterType string
 
 const (
-	ConverterOkSVG ConverterType = "oksvg"
-	ConverterRod   ConverterType = "rod"
-	ConverterRSVG  ConverterType = "rsvg"
+	ConverterOkSVG    ConverterType = "oksvg"
+	ConverterRod      ConverterType = "rod"
+	ConverterRSVG     ConverterType = "rsvg"
+	ConverterInkscape ConverterType = "inkscape"
 )
 
 // Validate checks if the configuration is valid
@@ -103,10 +104,10 @@ func (c *Config) Validate() error {
 	// Validate converter type
 	if c.Converter != "" {
 		switch ConverterType(c.Converter) {
-		case ConverterOkSVG, ConverterRod, ConverterRSVG:
+		case ConverterOkSVG, ConverterRod, ConverterRSVG, ConverterInkscape:
 			// valid
 		default:
-			return fmt.Errorf("invalid converter: %s (must be oksvg, rod, or rsvg)", c.Converter)
+			return fmt.Errorf("invalid converter: %s (must be oksvg, rod, rsvg, or inkscape)", c.Converter)
 		}
 	}
 

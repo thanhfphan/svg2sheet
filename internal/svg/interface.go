@@ -94,6 +94,7 @@ func NewConverterRegistry() *ConverterRegistry {
 	registry.Register(config.ConverterOkSVG, NewOkSVGConverter)
 	registry.Register(config.ConverterRod, NewRodConverter)
 	registry.Register(config.ConverterRSVG, NewRSVGConverter)
+	registry.Register(config.ConverterInkscape, NewInkscapeConverter)
 
 	return registry
 }

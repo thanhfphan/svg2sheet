@@ -63,6 +63,9 @@ svg2sheet --input complex.svg --output complex.png --converter rod --scale 2.0
 # Use RSVG - excellent compatibility, system dependency
 svg2sheet --input ./svg-folder --output ./png-folder --converter rsvg
 
+# Use Inkscape - professional-grade rendering, system dependency
+svg2sheet --input complex.svg --output complex.png --converter inkscape --scale 2.0
+
 # Generate spritesheet with Rod converter for best quality
 svg2sheet --input ./svg --output sheet.png --tile-width 64 --tile-height 64 --cols 5 --converter rod --meta sheet.json
 ```
@@ -82,7 +85,7 @@ svg2sheet \
   --trim \
   --verbose \
   --force \
-  --converter oksvg
+  --converter inkscape
 ```
 
 ## Command Line Options
@@ -109,7 +112,7 @@ svg2sheet \
 - `--meta`: Output metadata JSON file
 
 ### Converter Options
-- `--converter`: SVG converter backend: `oksvg`, `rod`, or `rsvg` (default: oksvg)
+- `--converter`: SVG converter backend: `oksvg`, `rod`, `rsvg`, or `inkscape` (default: oksvg)
 
 ### General Options
 - `--force`: Overwrite existing output files
@@ -171,6 +174,14 @@ svg2sheet supports multiple SVG rendering backends, each with different strength
 - **Usage**: `--converter rsvg`
 - **Requirements**: `rsvg-convert` command (install `librsvg2-bin` on Ubuntu/Debian)
 
+#### Inkscape
+- **Type**: System command wrapper for Inkscape CLI
+- **Pros**: Professional-grade SVG rendering, excellent compatibility, extensive feature support
+- **Cons**: Requires Inkscape installation, larger dependency footprint
+- **Best for**: Complex SVGs, professional workflows, maximum SVG feature compatibility
+- **Usage**: `--converter inkscape`
+- **Requirements**: Inkscape installed (download from [https://inkscape.org/](https://inkscape.org/))
+
 ### Checking Available Converters
 
 ```bash
@@ -205,6 +216,21 @@ brew install librsvg
 
 # Verify installation
 rsvg-convert --version
+```
+
+#### Installing Inkscape (for Inkscape converter)
+```bash
+# Ubuntu/Debian
+sudo apt-get install inkscape
+
+# macOS (Homebrew)
+brew install --cask inkscape
+
+# Windows
+# Download from https://inkscape.org/release/
+
+# Verify installation
+inkscape --version
 ```
 
 ## License
