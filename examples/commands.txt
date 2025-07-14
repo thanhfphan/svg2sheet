@@ -1,0 +1,4 @@
+svg2sheet --input examples/characters --output examples/characters_rsvg.png --tile-width 256 --tile-height 256 --converter rsv
+g --force
+
+svg2sheet --input examples/characters --output examples/characters_default.png --tile-width 256 --tile-height 256 --force
